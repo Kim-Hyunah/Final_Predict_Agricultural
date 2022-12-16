@@ -27,4 +27,10 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import LeavePOut
 
 
-# 데이터 불러오기
+# data/output_df의 파일들과 data/weather의 파일들을 읽어온다.
+seoul_output_df = pd.read_csv('data/output_df/seoul_output_df.csv')
+seoul_spring_df = pd.read_csv('data/weather/seoul_spring.csv')
+
+# 위에 파일들을 합친다.
+seoul_df = pd.merge(seoul_output_df, seoul_spring_df, on='date', how='left')
+
